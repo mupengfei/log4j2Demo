@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="log4j2Demo"
+  id="myeclipse.1390146690753"
+  context-root="/log4j2Demo"
+  j2ee-spec="6.0"
+  archive="log4j2Demo.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
