@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+  <appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+	<RandomAccessFile name="MyFile" fileName="../logs/app.log">
+		<PatternLayout>
+			<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+		</PatternLayout>
+	</RandomAccessFile>
+	<RollingRandomAccessFile name="RollingRandomAccessFile" filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+		<PatternLayout>
+			<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+		</PatternLayout>
+		<Policies>
+			<TimeBasedTriggeringPolicy />
+			<SizeBasedTriggeringPolicy size="1MB"/>
+		</Policies>
+		<DefaultRolloverStrategy max="20"/>
+	</RollingRandomAccessFile>
+  </appenders>
+  <loggers>
+    <root level="error">
+      <appender-ref ref="Console"/>
+      <appender-ref ref="MyFile"/>
+      <appender-ref ref="RollingRandomAccessFile"/>
+    </root>  
+    <logger name="com.jesse.log4j.demo.InitServlet" level="trace" additivity="false">  
+      <appender-ref ref="RollingRandomAccessFile"/>
+    </logger>  
+  </loggers>
+</configuration>

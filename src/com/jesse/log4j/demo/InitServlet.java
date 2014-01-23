@@ -27,6 +27,12 @@ public class InitServlet extends HttpServlet {
 		System.out.println("Hello World");
 		logger.error("Hello World");
 		logger.info("Hello World");
+		int i = 0;
+		while(i < 100000){
+			logger.entry();
+			logger.error("Hello World");
+			logger.exit();
+			i++;
+		}
 	}
-
 }
