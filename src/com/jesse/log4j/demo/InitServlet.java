@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.util.PropertiesUtil;
+import org.apache.logging.log4j.util.ProviderUtil;
 
 public class InitServlet extends HttpServlet {
 	private Logger logger = LogManager.getLogger(InitServlet.class.getName());  
@@ -28,11 +30,14 @@ public class InitServlet extends HttpServlet {
 		logger.error("Hello World");
 		logger.info("Hello World");
 		int i = 0;
-		while(i < 100000){
-			logger.entry();
-			logger.error("Hello World");
-			logger.exit();
-			i++;
-		}
+		PropertiesUtil pu = PropertiesUtil.getProperties();
+		System.out.println( ProviderUtil.hasProviders());
+//		while(i < 10240){
+//			logger.entry();
+//			logger.error("Hello World");
+//			logger.exit();
+//			logger.catching(new Exception(""));
+//			i++;
+//		}
 	}
 }
